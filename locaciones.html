@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios" />
+        <!--Vamos a buscar el CSS de Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <!--Podemos hacer algunos ajustes a sus CSS variables -->
+        <style>
+            :root {
+                --bs-body-color: #fff;
+                --bs-body-bg: #111;
+            }
+        </style>
+        <!--cuando usamos LeafLeft tenemos que agregar dos cosas más-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+        <title>Remake &#127909;</title>
+    </head>
+    <body>
+        <div class="container fixed-top">
+            <nav class="d-flex justify-content-between py-3"><a href="index.html">Portada</a> <a href="peliculas.html">Películas</a> <a href="locaciones.html" class="fw-bold">Locaciones</a> <a href="ganancias.html">Ganancias</a></nav>
+        </div>
+        <main class="container">
+            <div class="row" style="min-height: 90vh;">
+                <div id="mapa" style="width: 80%; height: 60vh;" class="m-auto">
+                    <!--acá se mete el mapa-->
+                </div>
+            </div>
+        </main>
+        <div class="container fixed-bottom">
+            <footer class="d-flex justify-content-between py-3">
+                <div>Regina Latife</div>
+                <div>DNO037</div>
+            </footer>
+        </div>
+        <script>
+            var mymap = L.map("mapa").setView([33.5427796, 9.9672612], 2);
+            L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
+                maxZoom: 18,
+                id: "mapbox/dark-v10",
+                tileSize: 512,
+                zoomOffset: -1,
+            }).addTo(mymap);
+
+    
+             L.marker([51.572,-1.25778]).addTo(mymap).bindPopup("<b>Oxford</b>. La escalera desde donde la profesora McGonagall da la bienvenida a los alumnos al colegio y la que conduce al Great Hall. Se encuentra en el Christ Church College.")
+              L.marker([51.8571572, -2.2775318]).addTo(mymap).bindPopup("<b>Gloucester</b>. La Catedral de Gloucester, al sur de Inglaterra. Es una delas  catedrales  más antiguas de Inglaterra, en la segunda película, fue en sus paredes donde aparecían los escritos misteriosos que amenazaban a los alumnos de Hogwarts, así como también la escena en la que Harry y Ron se ocultan del trol.");
+    L.marker([51.4162484, -0.6077139]).addTo(mymap).bindPopup("<b>Virginia Water</b>. Se encuentra en Surrey, y representa el lago de Hogwarts. Harry lo sobrevuela subido en el Hipogrifo en «Harry Potter y el prisionero de Azkaban» y donde Hermione transmite mensajes a Harry y Ron en «Harry Potter y el cáliz de fuego».");
+    L.marker([54.0864101, -2.5094525]).addTo(mymap).bindPopup("<b>Yorkshire Norte</b>. Se usó como la estación Hogsmeade, lugar en el que Harry y sus amigos desembarcan en el Hogwart Express antes de continuar su viaje hacia la escuela.");
+    L.marker([55.2957324, -2.6354339]).addTo(mymap).bindPopup("<b>Northumberland</b>. El Castillo de Alnwick se convertiría en el colegio Hogwarts en las dos primeras películas de Harry Potter.");
+     L.marker([57.6677241, -9.169921]).addTo(mymap).bindPopup("<b>Escocia</b>. El viaducto de Glenfinan, el puente fue utilizado para las escenas del camino a Hoghwarts, la escuela de magia.");
+    L.marker([51.6914914, -0.4197332]).addTo(mymap).bindPopup("<b> Warner Bros Studio</b>. El Parque temático que alberga los estudios de Harry Potter en Londres está localizado en Leavesden.");
+
+
+            
+        </script>
+        <script>
+            //un script cortito para ponerle una clase de bootstrap a todo vínculo
+            document.querySelectorAll("a").forEach((a) => a.classList.add("link-warning"));
+        </script>
+    </body>
+</html>
